@@ -6,14 +6,14 @@ if(err instanceof BaseError) {
         success: false,
         message: err.messaage,
         error:err.details,
-        data:{} //because this is an exception so no data is ging to be provided
+        data:{} //because this is an exception so no data is going to be provided
     });
 }
      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         success: false,
         message: 'Something went wrong',
         error:err,
-        data:{} //because this is an exception so no data is ging to be provided
+        data:{} //because this is an exception so no data is going to be provided
     });
   
 
