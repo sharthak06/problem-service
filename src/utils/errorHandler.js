@@ -4,7 +4,7 @@ function errorHandler(err,req,res,next){
 if(err instanceof BaseError) {
     return res.status(err.statusCode).json({
         success: false,
-        message: err.messaage,
+        message: err.message,
         error:err.details,
         data:{} //because this is an exception so no data is going to be provided
     });
