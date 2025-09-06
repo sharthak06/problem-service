@@ -2,6 +2,7 @@ const { Problem } = require('../models');
 const NotFound = require('../errors/notfound.error');
 const BadRequest = require('../errors/badrequest.error');
 const mongoose = require('mongoose');
+const logger = require('../config/logger.config');
 
 class ProblemRepository {
 
@@ -51,6 +52,9 @@ class ProblemRepository {
     async deleteProblem(id) {
         try {
             const deletedProblem = await Problem.findByIdAndDelete(id);
+             if (!mongoose.Types.ObjectId.isValid(id)) {
+            throw new BadRequest("problemId");
+        }
             if(!deletedProblem) {
                 logger.error(`Problem.Repository: Problem with id: ${id} not found in the db`);
                 throw new NotFound("problem", id);

@@ -9,6 +9,8 @@ if(err instanceof BaseError) {
         data:{} //because this is an exception so no data is going to be provided
     });
 }
+
+console.log("Something went Wrong");
      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         success: false,
         message: 'Something went wrong',
